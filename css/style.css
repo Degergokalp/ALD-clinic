@@ -83,17 +83,22 @@ body {
 }
 
 section {
-    padding: 8rem 0;
+    padding: 4rem 0;
     position: relative;
 }
 
 h2 {
     text-align: center;
-    margin-bottom: 4rem;
+    margin-bottom: 2rem;
     font-size: 2.8rem;
     color: var(--dark);
     position: relative;
     padding-bottom: 1rem;
+    font-weight: 600;
+    text-transform: capitalize;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.8s ease forwards;
 }
 
 h2::after {
@@ -106,6 +111,18 @@ h2::after {
     height: 4px;
     background: var(--gradient);
     border-radius: 2px;
+}
+
+/* Add animation keyframes */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 /* Enhanced Navigation */
@@ -216,7 +233,7 @@ h2::after {
 /* Before/After Results Section */
 .results-section {
     background: var(--gray);
-    padding: 8rem 0;
+    padding: 4rem 0;
 }
 
 .results-slider {
@@ -287,6 +304,15 @@ h2::after {
     
     .navbar.scrolled .logo img {
         height: 100px;
+    }
+
+    h2 {
+        font-size: 2.2rem;
+    }
+    
+    h2::after {
+        width: 60px;
+        height: 3px;
     }
 }
 
@@ -573,7 +599,7 @@ h2::after {
     background-color: var(--gray);
     position: relative;
     overflow: hidden;
-    padding: 8rem 0;
+    padding: 4rem 0;
 }
 
 .contact-container {
@@ -986,5 +1012,56 @@ h2::after {
         height: 100px;
         top: -10px;
         margin-bottom: -10px;
+    }
+} 
+
+/* Adjust specific sections if needed */
+.results-section,
+.testimonials-section,
+.services-section,
+.pricing-section,
+.steps-section,
+.blog-section,
+.contact-section {
+    padding: 4rem 0; /* Consistent padding for all sections */
+}
+
+/* Add some breathing room for the first section after navbar */
+#results {
+    padding-top: 6rem; /* Slightly more padding for first section to account for fixed navbar */
+} 
+
+/* Instagram button style */
+.secondary.instagram {
+    background: linear-gradient(45deg, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D);
+    border: none;
+    color: white;
+    box-shadow: 0 4px 15px rgba(193, 53, 132, 0.4);
+}
+
+.secondary.instagram:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(193, 53, 132, 0.6);
+    color: white;
+}
+
+/* Adjust button spacing in hero section */
+.cta-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .btn {
+        width: 80%;
+        text-align: center;
     }
 } 
