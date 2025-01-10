@@ -1076,3 +1076,32 @@ h2::after {
     color: var(--primary-color);
     width: 20px;
 } 
+
+.package-benefits {
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(0,0,0,0.1);
+}
+
+.package-benefits h4 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+}
+
+.package-benefits ul {
+    list-style: none;
+    padding: 0;
+}
+
+.package-benefits li {
+    margin-bottom: 1rem;
+    line-height: 1.5;
+    font-size: 0.95rem;
+}
+
+.package-benefits strong {
+    color: var(--dark);
+    display: block;
+    margin-bottom: 0.25rem;
+} 
