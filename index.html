@@ -118,10 +118,6 @@
                     </div>
                     <div class="review-platform">
                         <img src="assets/img/google.webp" alt="Google Review">
-                        <div class="verified-badge">
-                            <i class="fas fa-check-circle"></i>
-                            <span>Verified Review</span>
-                        </div>
                     </div>
                 </div>
                 <div class="testimonial-content">
@@ -150,10 +146,6 @@
                     </div>
                     <div class="review-platform">
                         <img src="assets/img/google.webp" alt="Google Review">
-                        <div class="verified-badge">
-                            <i class="fas fa-check-circle"></i>
-                            <span>Verified Review</span>
-                        </div>
                     </div>
                 </div>
                 <div class="testimonial-content">
@@ -182,10 +174,6 @@
                     </div>
                     <div class="review-platform">
                         <img src="assets/img/google.webp" alt="Google Review">
-                        <div class="verified-badge">
-                            <i class="fas fa-check-circle"></i>
-                            <span>Verified Review</span>
-                        </div>
                     </div>
                 </div>
                 <div class="testimonial-content">
@@ -259,11 +247,11 @@
     <section id="contact" class="contact-section">
         <h2>Get in Touch</h2>
         <div class="contact-container">
-            <form class="contact-form">
-                <input type="text" placeholder="Your Name" required>
-                <input type="email" placeholder="Your Email" required>
-                <input type="tel" placeholder="Your Phone">
-                <textarea placeholder="Your Message" required></textarea>
+            <form class="contact-form" id="contactForm" onsubmit="return sendEmail(event)">
+                <input type="text" id="name" name="name" placeholder="Your Name" required>
+                <input type="email" id="email" name="email" placeholder="Your Email" required>
+                <input type="tel" id="phone" name="phone" placeholder="Your Phone">
+                <textarea id="message" name="message" placeholder="Your Message" required></textarea>
                 <button type="submit" class="btn primary">Send Message</button>
             </form>
         </div>
@@ -332,7 +320,7 @@
 
     <!-- Blog Section -->
     <section id="blog" class="blog-section">
-        <div class="container">
+        <div class="container" style="margin: 120px;">
             <h2 class="section-title">Latest Articles</h2>
             
             <!-- Featured Article -->
@@ -357,7 +345,7 @@
                     <div class="article-content">
                         <h3>FUE Hair Transplant: Benefits and Stages</h3>
                         <p>Discover everything about the FUE technique and why it might be right for you...</p>
-                        <a href="/article-1" class="read-more">Read More →</a>
+                        <a href="articles/article-1.html" class="read-more">Read More →</a>
                     </div>
                 </article>
 
@@ -370,7 +358,7 @@
                     <div class="article-content">
                         <h3>First 30 Days After Hair Transplant</h3>
                         <p>Essential care tips and what to expect in your first month of recovery...</p>
-                        <a href="/article-2" class="read-more">Read More →</a>
+                        <a href="articles/article-2.html" class="read-more">Read More →</a>
                     </div>
                 </article>
 
@@ -383,7 +371,7 @@
                     <div class="article-content">
                         <h3>Understanding Hair Loss: Causes and Solutions</h3>
                         <p>Learn about the common causes of hair loss and effective treatment options...</p>
-                        <a href="/article-3" class="read-more">Read More →</a>
+                        <a href="articles/article-3.html" class="read-more">Read More →</a>
                     </div>
                 </article>
 
@@ -396,7 +384,7 @@
                     <div class="article-content">
                         <h3>Real Patient Success Stories</h3>
                         <p>Read inspiring stories from our patients and their transformation journeys...</p>
-                        <a href="/article-4" class="read-more">Read More →</a>
+                        <a href="articles/article-4.html" class="read-more">Read More →</a>
                     </div>
                 </article>
             </div>
@@ -408,16 +396,41 @@
         </div>
     </section>
 
-        <!-- Social Media Section -->
-        <section class="social-section">
-            <div class="social-container">
+    <!-- Social Media Section with Map -->
+    <section class="social-section">
+        <div class="social-grid">
+            <!-- Map Side -->
+            <div class="map-side">
+                <h2>Our Clinic</h2>
+                <div class="clinic-address">
+                    <p><i class="fas fa-map-marker-alt"></i> Atakent, 4. Cd. No:36, 34307 Küçükçekmece/İstanbul</p>
+                    <p><i class="fas fa-phone"></i> +90 (212) 123 4567</p>
+                    <p><i class="far fa-clock"></i> Mon - Sat: 09:00 - 18:00</p>
+                </div>
+                <div class="map-container">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3008.409319833448!2d28.771538276741552!3d41.06004461623461!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14caa5e3dddce963%3A0xcae4fd4c9d19458b!2sALD%20Hair%20Clinic!5e0!3m2!1str!2str!4v1736443065214!5m2!1str!2str"
+                        width="100%"
+                        height="100%"
+                        style="border:0;"
+                        allowfullscreen=""
+                        loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+            </div>
+            
+            <!-- Instagram Side -->
+            <div class="social-content">
                 <h2>Follow Our Journey</h2>
-                <p>Stay updated with our latest transformations and success stories</p>
+                <p>Follow us on Instagram for the latest updates, transformations, and special offers!</p>
                 <a href="https://instagram.com/YOUR_HANDLE" class="instagram-link">
-                    <i class="fab fa-instagram"></i> Follow Us on Instagram
+                    <i class="fab fa-instagram"></i> Follow on Instagram
                 </a>
             </div>
-        </section>
+        </div>
+    </section>
+
 
     <!-- Footer -->
     <footer class="footer">
@@ -456,6 +469,7 @@
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="js/main.js"></script>
+    <script src="js/emailSender.js"></script>
     <script>
     window.addEventListener('scroll', () => {
         const navbar = document.querySelector('.navbar');
