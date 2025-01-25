@@ -21,10 +21,13 @@
     <header class="hero" id="home">
         <nav class="navbar">
             <div class="logo">
-                <img src="assets/img/Logo.jpg" alt="Clinic Logo">
+                <a href="index.html">
+                    <img src="assets/img/Logo.jpg" alt="ALD Clinic Logo">
+                </a>
             </div>
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
+                <li><a href="#why-choose">Why Choose US</a></li>
                 <li><a href="#results">Results</a></li>
                 <li><a href="#testimonials">Testimonials</a></li>
                 <li><a href="#services">Services</a></li>
@@ -34,17 +37,41 @@
             </ul>
         </nav>
         <div class="hero-content">
-            <h1>Welcome to ALD Clinic</h1>
-            <p>Message us on WhatsApp and get 40% discount</p>
+            <h1>Don't Look Further—You've Found Your Clinic</h1>
+            <p>Message us on WhatsApp and get %40 discount</p>
             <div class="cta-buttons">
-                <a href="#contact" class="btn primary">Contact Us</a>
-                <a href="https://wa.me/YOUR_NUMBER" class="btn secondary whatsapp">WhatsApp Now</a>
+                <a href="#pricing"style="" class="btn primary pricing-button">Pricing</a>
+                <a href="https://wa.me/YOUR_NUMBER" class="btn secondary whatsapp">
+                    <img src="assets/img/whatssapp-icon.png" alt="WhatsApp" style="width: 30px; height: 30px; margin-right: 5px;"> WhatsApp Now
+                </a>
                 <a href="https://instagram.com/aldhairclinic" style="background: linear-gradient(45deg, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D);" class="btn secondary instagram">
                     <i class="fab fa-instagram"></i> Follow Us
                 </a>
             </div>
         </div>
     </header>
+
+    <!-- Why Choose ALD Clinic? Section -->
+    <section id="why-choose" class="why-choose-section">
+        <h2>Why Choose ALD Clinic?</h2>
+        <div class="choose-container">
+            <div class="choose-card">
+                <h4>No Deposit Required & No Hidden Fees</h4>
+                <img src="assets/img/hidden.jpg" alt="No Deposit Required" class="card-image">
+                <p style="font-size: 1.2rem;">We believe in transparency. That's why we don't ask for any deposit, and there are no hidden fees—what we quote is what you pay. No surprises, just exceptional results at an affordable price.</p>
+            </div>
+            <div class="choose-card">
+                <h4>Affordable Pricing Guarantee</h4>
+                <img src="assets/img/bestp.jpg" alt="Affordable Pricing Guarantee" class="card-image"><br><br>
+                <p style="font-size: 1.2rem;">Achieve your dream look without breaking the bank. We offer the most competitive prices in the market, ensuring you get the best value for your investment.</p>
+            </div>
+            <div class="choose-card">
+                <h4>Exceptional Quality Workmanship</h4>
+                <img src="assets/img/q.avif" alt="Exceptional Quality Workmanship" class="card-image">
+                <p style="font-size: 1.2rem;">We only take a limited number of patients each month to ensure the highest quality of care. This allows us to focus on each patient individually. Contact us now to check our availability!</p>
+            </div>
+        </div>
+    </section>
 
     <!-- Before/After Results Section -->
     <section id="results" class="results-section">
@@ -232,26 +259,6 @@
     <section id="pricing" class="pricing-section">
         <h2>Our Packages</h2>
         <div class="pricing-container">
-            <div class="pricing-card">
-                <h3>Express 2-Day Package</h3>
-                <ul class="features">
-                    <li>No deposit needed</li>
-                    <li>Personal Consultation</li>
-                    <li>VIP Airport, Hotel and Clinic Transfers</li>
-                    <li>Translator at All Steps</li>
-                    <li>Luxury 5-Star Hotel Accommodation</li>
-                    <li>Procedure at Luxury Full-Fledged Hospital</li>
-                    <li>Post-Operation Care Kit</li>
-                </ul>
-                <div class="package-benefits">
-                    <h4>Why Choose Our Express Package:</h4>
-                    <ul>
-                        <li><strong>Efficiency:</strong> Perfect for those with a busy schedule—everything is completed in just two days.</li>
-                        <li><strong>Quality Care:</strong> We've shortened all the process except the procedure. It's exactly the same procedure as our standard package.</li>
-                    </ul>
-                </div>
-                <a href="#contact" class="btn primary">Get Quote</a>
-            </div>
             
             <div class="pricing-card featured">
                 <h3>Standard 3-Day Package</h3>
@@ -260,16 +267,22 @@
                     <li>Extended Recovery Time</li>
                     <li>Additional Follow-up Care</li>
                     <li>City Tour Opportunity</li>
+                    <li>No Deposit Needed</li>
+                    <li>Personal Consultation</li>
+                    <li>VIP Airport, Hotel and Clinic Transfers</li>
+                    <li>Translator at All Steps</li>
+                    <li>Luxury 5-Star Hotel Accommodation</li>
+                    <li>Procedure at Luxury Full-Fledged Hospital</li>
+                    <li>Post-Operation Care Kit</li>
                 </ul>
                 <div class="package-benefits">
-                    <h4>Why Choose Our Standard Package:</h4>
-                    <ul>
-                        <li><strong>Relax at Your Own Pace:</strong> With three days, you won't feel hurried. Take it easy, unwind, and make the most of your time here, all while we take care of the details.</li>
-                        <li><strong>Extra Day to Explore:</strong> Try the delicious cuisine, and visit iconic sights. Make your trip more than just a procedure, it's a mini-vacation too!</li>
-                    </ul>
+                    
                 </div>
-                <a href="#contact" class="btn primary">Get Quote</a>
+                <a href="#contact" class="btn primary">
+                    <span>Starts From </span>€3000
+                </a>
             </div>
+
         </div>
     </section>
 
@@ -290,14 +303,14 @@
 
     <!-- Hair Transplant Steps -->
     <section id="steps" class="steps-section">
-        <h2>Hair Transplant Steps</h2>
+        <h2>Hair Transplant Adımları</h2>
         <div class="steps-container">
             <!-- Step 1 -->
             <div class="step-card">
                 <div class="step-number">1</div>
                 <div class="step-content">
-                    <h3>Area 51 Analysis 🎯</h3>
-                    <p>Welcome to the mission! Our first task is to analyze the "landing zones" (aka your scalp). Think of it as mapping out the perfect real estate for your new hair—prime locations only!</p>
+                    <h3>🛬 Arrival & Consultation</h3>
+                    <p class="highlight">Upon arrival, you'll be welcomed at the airport and taken to your hotel, followed by a consultation the next day.</p>
                 </div>
             </div>
 
@@ -305,8 +318,8 @@
             <div class="step-card">
                 <div class="step-number">2</div>
                 <div class="step-content">
-                    <h3>Blood Work—Science Rules! 🧪</h3>
-                    <p>Before we get to the fun stuff, we'll run some blood tests to make sure your body's ready for action. Don't worry, no vampires involved—just science doing its thing.</p>
+                    <h3>📝 Planning</h3>
+                    <p class="highlight">On procedure day, we'll mark your hairline and finalize the graft placement.</p>
                 </div>
             </div>
 
@@ -314,8 +327,8 @@
             <div class="step-card">
                 <div class="step-number">3</div>
                 <div class="step-content">
-                    <h3>FUE or DHI—The Real Magic! ✨</h3>
-                    <p>Here comes the magic! Hair follicles are gently extracted with surgeon-level precision. It's like rescuing tiny heroes ready to save your hair game.</p>
+                    <h3>🔍 Hair Follicle Extraction</h3>
+                    <p class="highlight">We extract healthy hair follicles from the donor area using the FUE method.</p>
                 </div>
             </div>
 
@@ -323,8 +336,8 @@
             <div class="step-card">
                 <div class="step-number">4</div>
                 <div class="step-content">
-                    <h3>Music Time 🎵</h3>
-                    <p>As we're working on your hair, why not listen to some tunes? This is the fun part—maybe even prepare a playlist!</p>
+                    <h3>💉 Graft Implantation</h3>
+                    <p class="highlight">The follicles are implanted into the recipient area for a natural look.</p>
                 </div>
             </div>
 
@@ -332,8 +345,8 @@
             <div class="step-card">
                 <div class="step-number">5</div>
                 <div class="step-content">
-                    <h3>Kebab Time 🍢</h3>
-                    <p>After the procedure, it's time to celebrate with some tasty treats! You've earned it—enjoy this part of the journey.</p>
+                    <h3>🛡️ Aftercare</h3>
+                    <p class="highlight">You'll receive aftercare instructions for optimal healing and results.</p>
                 </div>
             </div>
 
@@ -341,8 +354,8 @@
             <div class="step-card">
                 <div class="step-number">6</div>
                 <div class="step-content">
-                    <h3>Back to the Hotel 🏨</h3>
-                    <p>Once you've refueled and rested, we'll transfer you back to your hotel for some well-deserved relaxation. Rest up and get ready to shine!</p>
+                    <h3>✅ Final Check & Departure</h3>
+                    <p class="highlight">Before departure, we'll check your progress and provide follow-up care details.</p>
                 </div>
             </div>
         </div>
@@ -369,13 +382,13 @@
                 <!-- Article 1 -->
                 <article class="article-card">
                     <div class="article-image">
-                        <img src="https://images.unsplash.com/photo-1519575706483-221027bfbb31?w=500" alt="FUE Method">
+                        <img src="assets/img/art1.jpg" alt="FUE Method">
                         <span class="tag">Methods</span>
                     </div>
                     <div class="article-content">
                         <h3>FUE Hair Transplant: Benefits and Stages</h3>
                         <p>Discover everything about the FUE technique and why it might be right for you...</p>
-                        <a href="articles/article-1.html" class="read-more">Read More →</a>
+                        <a href="article-1.html" class="read-more">Read More →</a>
                     </div>
                 </article>
 
@@ -388,20 +401,20 @@
                     <div class="article-content">
                         <h3>First 30 Days After Hair Transplant</h3>
                         <p>Essential care tips and what to expect in your first month of recovery...</p>
-                        <a href="articles/article-2.html" class="read-more">Read More →</a>
+                        <a href="article-2.html" class="read-more">Read More →</a>
                     </div>
                 </article>
 
                 <!-- Article 3 -->
                 <article class="article-card">
                     <div class="article-image">
-                        <img src="https://images.unsplash.com/photo-1626624340240-aadc087844fa?w=500" alt="Hair Loss Solutions">
+                        <img src="assets/img/art3.jpg" alt="Hair Loss Solutions">
                         <span class="tag">Solutions</span>
                     </div>
                     <div class="article-content">
                         <h3>Understanding Hair Loss: Causes and Solutions</h3>
                         <p>Learn about the common causes of hair loss and effective treatment options...</p>
-                        <a href="articles/article-3.html" class="read-more">Read More →</a>
+                        <a href="article-3.html" class="read-more">Read More →</a>
                     </div>
                 </article>
 
@@ -414,7 +427,7 @@
                     <div class="article-content">
                         <h3>Real Patient Success Stories</h3>
                         <p>Read inspiring stories from our patients and their transformation journeys...</p>
-                        <a href="articles/article-4.html" class="read-more">Read More →</a>
+                        <a href="article-4.html" class="read-more">Read More →</a>
                     </div>
                 </article>
             </div>
@@ -461,6 +474,14 @@
         </div>
     </section>
 
+    <!-- FAQ Section -->
+    <section id="faq" class="faq-section">
+        <h2>Frequently Asked Questions</h2>
+        <div class="faq-item">
+          
+        </div>
+        <!-- Add more FAQs as needed -->
+    </section>
 
     <!-- Footer -->
     <footer class="footer">

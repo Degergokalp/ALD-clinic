@@ -189,10 +189,10 @@ h2::after {
 /* Enhanced Hero Section */
 .hero {
     height: 100vh;
-    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('../images/hero-bg.jpg');
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('../assets/img/cover.jpeg');
+    background-size: cover; /* Ensures the image covers the entire area */
+    background-position: center; /* Centers the image */
+    background-attachment: fixed; /* Keeps the background fixed during scroll */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -212,6 +212,16 @@ h2::after {
 }
 
 .hero-content {
+    background-image: url('assets/img/cover.jpeg'); /* Ensure the path is correct */
+    background-size: cover; /* Ensures the image covers the entire area */
+    background-position: center; /* Centers the image */
+    height: 100vh; /* Adjust height as needed */
+    display: flex; /* To center content */
+    flex-direction: column; /* Stack children vertically */
+    justify-content: center; /* Center vertically */
+    align-items: center; /* Center horizontally */
+    color: white; /* Change text color for better visibility */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7); /* Optional: adds shadow for better readability */
     max-width: 900px;
     padding: 0 2rem;
     animation: fadeInUp 1s ease;
@@ -1104,4 +1114,142 @@ h2::after {
     color: var(--dark);
     display: block;
     margin-bottom: 0.25rem;
+}
+
+.cover-image {
+    background-image: url('assets/images/cover.png'); /* Path to your cover image */
+    background-size: cover;
+    background-position: center;
+    height: 400px; /* Adjust height as needed */
+}
+
+.why-choose-card {
+    background-color: #f0f8ff; /* Light background color */
+    border: 2px solid #00adb5; /* Border color */
+    border-radius: 10px; /* Rounded corners */
+    padding: 20px; /* Padding inside the card */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow effect */
+    transition: transform 0.3s; /* Smooth transition for hover effect */
+}
+
+.why-choose-card:hover {
+    transform: scale(1.05); /* Slightly enlarge on hover */
+}
+
+.why-choose-card h4 {
+    color: #00adb5; /* Change heading color */
+    font-weight: bold; /* Bold font for the heading */
+}
+
+.benefits-list {
+    list-style-type: none; /* Remove default bullet points */
+    padding: 0; /* Remove default padding */
+    margin: 20px 0; /* Add margin for spacing */
+}
+
+.benefits-list li {
+    background-color: #f0f8ff; /* Light background color for each item */
+    border: 1px solid #00adb5; /* Border color */
+    border-radius: 8px; /* Rounded corners */
+    padding: 15px; /* Padding inside each item */
+    margin-bottom: 10px; /* Space between items */
+    transition: transform 0.3s, box-shadow 0.3s; /* Smooth transition for hover effect */
+}
+
+.benefits-list li:hover {
+    transform: translateY(-3px); /* Slightly lift the item on hover */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow on hover */
+}
+
+.benefits-list li strong {
+    color: #00adb5; /* Change color of the strong text */
+}
+
+.pricing-info {
+    background-color: #333; /* Dark background color */
+    color: white; /* White text color */
+    padding: 20px; /* Padding around the text */
+    border-radius: 8px; /* Rounded corners */
+    text-align: center; /* Center the text */
+    margin: 20px 0; /* Margin for spacing */
+}
+
+.pricing-info h4 {
+    font-size: 1.5rem; /* Font size for the "Starts from" text */
+    margin: 0; /* Remove default margin */
+}
+
+.pricing-info .price {
+    font-size: 2.5rem; /* Larger font size for the price */
+    font-weight: bold; /* Bold font for emphasis */
+    margin: 0; /* Remove default margin */
+}
+
+.pricing-button {
+    display: inline-block; /* Ensure it behaves like a button */
+    background-color: #00adb5; /* Primary color */
+    color: white; /* Text color */
+    text-decoration: none; /* Remove underline */
+    border-radius: 5px; /* Rounded corners */
+    font-size: 1rem; /* Font size */
+    transition: background 0.3s; /* Smooth transition for hover effect */
+}
+
+.pricing-button:hover {
+    background-color: #008c8a; /* Darker shade on hover */
+}
+
+.highlight {
+    background-color: #e0f7fa; /* Light blue background */
+    padding: 10px; /* Padding around the text */
+    border-radius: 5px; /* Rounded corners */
+    font-weight: bold; /* Bold text */
+}
+
+.whatsapp img {
+    width: 20px; /* Adjust size as needed */
+    height: 20px; /* Adjust size as needed */
+    vertical-align: middle; /* Aligns the icon with the text */
+    margin-right: 5px; /* Space between icon and text */
+}
+
+.why-choose-section {
+    padding: 40px 20px; /* Padding for the section */
+    background-color: #f9f9f9; /* Light background color */
+    text-align: center; /* Center the text */
+}
+
+.choose-container {
+    display: flex; /* Use flexbox for layout */
+    justify-content: space-between; /* Space between the boxes */
+    flex-wrap: wrap; /* Allow wrapping for smaller screens */
+}
+
+.choose-card {
+    background-color: #ffffff; /* White background for cards */
+    border: 1px solid #00adb5; /* Border color */
+    border-radius: 8px; /* Rounded corners */
+    padding: 20px; /* Padding inside the card */
+    margin: 10px; /* Margin around the card */
+    flex: 1 1 30%; /* Flex-grow, flex-shrink, and basis for responsive design */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow effect */
+    transition: transform 0.3s; /* Smooth transition for hover effect */
+}
+
+.choose-card:hover {
+    transform: translateY(-5px); /* Lift the card on hover */
+}
+
+.choose-card h4 {
+    color: #000000; /* Heading color */
+    margin-bottom: 20px; /* Space below the heading */
+    font-size: 1.5rem;
+}
+
+.card-image {
+    width: 70%; /* Set the image width to 70% */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 8px; /* Rounded corners */
+    margin: 15px auto; /* Center the image and add space above and below */
+    display: block; /* Ensure the image is a block element for centering */
 } 
