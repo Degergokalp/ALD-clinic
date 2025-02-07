@@ -103,41 +103,37 @@ section {
 }
 
 h2 {
-    text-align: center;
-    margin-bottom: 2rem;
-    font-size: 2.8rem;
-    color: var(--dark);
-    position: relative;
-    padding-bottom: 1rem;
-    font-weight: 600;
-    text-transform: capitalize;
-    opacity: 0;
-    transform: translateY(20px);
-    animation: fadeInUp 0.8s ease forwards;
+    font-size: 3rem; /* Larger font size for emphasis */
+    color: #000000; /* Bright color for the text */
+    text-align: center; /* Center the heading */
+    margin: 1.5rem 0; /* Margin above and below */
+    padding: 0.5rem; /* Padding for spacing */
+    text-transform: uppercase; /* Uppercase text */
+    letter-spacing: 2px; /* Increased spacing between letters */
+    position: relative; /* Position for the pseudo-element */
 }
 
+/* Add a decorative underline */
 h2::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 80px;
-    height: 4px;
-    background: var(--gradient);
-    border-radius: 2px;
+    content: ''; /* Empty content for the pseudo-element */
+    display: block; /* Make it a block element */
+    width: 100px; /* Width of the underline */
+    height: 5px; /* Height of the underline */
+    background: linear-gradient(135deg, #00adb5, #22c5ce); /* Gradient color */
+    margin: 0 auto; /* Center the underline */
+    margin-top: 0.5rem; /* Space above the underline */
 }
 
-/* Add animation keyframes */
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+/* Optional: Add a text shadow for depth */
+h2 {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* More pronounced shadow */
+}
+
+/* Optional: Add a background highlight */
+h2 {
+    background: rgba(0, 173, 181, 0.1); /* Light background color */
+    padding: 10px; /* Padding around the text */
+    border-radius: 8px; /* Rounded corners */
 }
 
 .navbar {
@@ -201,7 +197,7 @@ h2::after {
 
 .hero {
     height: 100vh;
-    background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('../assets/img/newcover.png');
+    background: linear-gradient(rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.02)), url('../assets/img/newcover.png');
     background-size: cover;
     background-position: 60% center; /* Move image 20% to the left */
     background-repeat: no-repeat;
@@ -229,7 +225,7 @@ h2::after {
 
 .hero {
     height: calc(100vh - 80px);
-    background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('../assets/img/newcover.png');
+    background: linear-gradient(rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.02)), url('../assets/img/newcover.png');
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
@@ -1368,4 +1364,23 @@ h2::after {
     text-align: center; /* Centers text inside */
     max-width: 600px; /* Adjust width if needed */
     width: 100%;
+}
+
+/* Apply border color to all components */
+* {
+    box-sizing: border-box; /* Ensure padding and border are included in the element's total width and height */
+}
+
+.border {
+    border: 2px solid #00adb5; /* Set the border color */
+}
+
+/* Example for specific components */
+.btn, .faq-item, .article-card, .pricing-card, .service-card, .testimonial-card {
+    border: 2px solid #00adb5; /* Apply border color to specific components */
+}
+
+/* Optional: Add hover effect for buttons */
+.btn:hover {
+    border-color: #008c93; /* Darker shade on hover */
 }
