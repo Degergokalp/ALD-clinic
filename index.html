@@ -40,8 +40,7 @@
             </ul>
         </nav><br><br>
         <div class="hero-content">
-            <!-- <h1>Don't Look Further—You've Found Your Clinic</h1> -->
-          
+
             <div class="cta-buttons">
                 <a href="https://wa.me/905308163487" class="btn primary pricing-button">Book Now</a>
             </div>
@@ -574,13 +573,18 @@
     <script src="js/main.js"></script>
     <script src="js/emailSender.js"></script>
     <script>
+    const navbar = document.querySelector('.navbar');
+    let lastScrollTop = 0;
+
     window.addEventListener('scroll', () => {
-        const navbar = document.querySelector('.navbar');
-        if (window.scrollY > 50) {
-            navbar.classList.add('scrolled');
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+        if (scrollTop > 100) { // Adjust this value to control when the navbar appears
+            navbar.classList.add('visible'); // Show the navbar
         } else {
-            navbar.classList.remove('scrolled');
+            navbar.classList.remove('visible'); // Hide the navbar
         }
+        lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // For Mobile or negative scrolling
     });
     </script>
 <script>
