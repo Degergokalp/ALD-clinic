@@ -10,16 +10,26 @@
     --shadow: 0 2px 15px rgba(0,0,0,0.1);
     --shadow-strong: 0 5px 25px rgba(0,0,0,0.15);
     --gradient: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+    min-width: 100%;
+
 }
 
 * {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+}
+body {
+    overflow-x: auto;
+    min-width: 100%;
+    width: 100%;
+    
 }
 
 html {
     scroll-behavior: smooth;
+    min-width: 100%;
+    width: 100%;
 }
 
 body {
@@ -191,7 +201,7 @@ h2::after {
 
 .hero {
     height: 100vh;
-    background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('../assets/img/cover2.png');
+    background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('../assets/img/newcover.png');
     background-size: cover;
     background-position: 60% center; /* Move image 20% to the left */
     background-repeat: no-repeat;
@@ -203,7 +213,7 @@ h2::after {
     position: relative;
     padding-top: 100px; /* Prevent navbar overlap */
    
-    background-color: black;
+    background-color: white;
 }
 
 
@@ -219,7 +229,7 @@ h2::after {
 
 .hero {
     height: calc(100vh - 80px);
-    background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('../assets/img/cover2.png');
+    background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('../assets/img/newcover.png');
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
@@ -230,7 +240,7 @@ h2::after {
     color: var(--white);
     position: relative;
     padding: 80px 5%; /* Add padding on right for better spacing */
-    background-color: black; /* Change grey part to black */
+    background-color: white; /* Change grey part to black */
 }
 
 .hero-content {
@@ -248,7 +258,7 @@ h2::after {
 }
 
 .cta-buttons {
-    margin-top: 200%; /* Adjust this value to move the section lower */
+    margin-top: 300%; /* Adjust this value to move the section lower */
     display: flex; /* Ensure buttons are displayed in a row */
     flex-direction: column; /* Stack buttons vertically */
     align-items: center; /* Center buttons horizontally */
@@ -986,6 +996,12 @@ h2::after {
     .step-content p {
         text-align: center;
     }
+
+    .article-card {
+        width: 100%; /* Allow cards to take full width */
+        max-width: 400px; /* Optional: Set a max width for larger screens */
+        margin: 10px 0; /* Add some vertical margin */
+    }
 }
 
 /* Add smooth scroll polyfill for Safari */
@@ -1149,7 +1165,7 @@ h2::after {
 }
 
 .cover-image {
-    background-image: url('assets/images/cover.png'); /* Path to your cover image */
+    background-image: url('assets/images/newcover.png'); /* Path to your cover image */
     background-size: cover;
     background-position: center;
     height: 00px; /* Adjust height as needed */
@@ -1315,4 +1331,20 @@ h2::after {
 .faq-item p {
     margin: 0.5rem 0 0; /* Space above and below the answer */
     color: #555; /* Slightly lighter text for answers */
-} 
+}
+
+.faq-answer {
+    display: none; /* Initially hidden */
+    margin-top: 0.5rem;
+    transition: all 0.3s ease-in-out;
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 0.5rem; /* Less padding on smaller screens */
+    }
+
+    .article-card, .faq-item {
+        margin: 0.5rem 0; /* Less margin on smaller screens */
+    }
+}
