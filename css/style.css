@@ -32,7 +32,7 @@ body {
 /* Enhanced Common Styles */
 .btn {
     display: inline-block;
-    padding: 1rem 2.5rem;
+    padding: 0.8rem 1.5rem;
     border-radius: 50px;
     text-decoration: none;
     margin: 0.5rem;
@@ -41,19 +41,24 @@ body {
     letter-spacing: 0.5px;
     position: relative;
     overflow: hidden;
+    color: white;
+    font-size: 0.9rem;
 }
 
-.primary {
-    background: var(--gradient);
-    color: var(--white);
-    box-shadow: 0 4px 15px rgba(0, 173, 181, 0.4);
+.btn.primary {
+    background-color: #00adb5;
 }
 
-.secondary {
+.btn.primary:hover {
+    background-color: #008c93;
+}
+
+.btn.secondary {
     background-color: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
-    border: 2px solid var(--white);
-    color: var(--white);
+}
+
+.btn.secondary:hover {
+    background-color: rgba(255, 255, 255, 0.2);
 }
 
 /* Add new WhatsApp button style */
@@ -125,7 +130,6 @@ h2::after {
     }
 }
 
-/* Enhanced Navigation */
 .navbar {
     position: fixed;
     top: 0;
@@ -138,8 +142,7 @@ h2::after {
     background-color: rgba(255,255,255,0.98);
     box-shadow: var(--shadow);
     z-index: 1000;
-    transition: all 0.3s ease;
-    height: 80px;
+    height: 50px; /* Ensure navbar height is fixed */
     overflow: hidden;
 }
 
@@ -186,20 +189,23 @@ h2::after {
     width: 100%;
 }
 
-/* Enhanced Hero Section */
 .hero {
     height: 100vh;
-    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('../assets/img/cover.jpeg');
-    background-size: cover; /* Ensures the image covers the entire area */
-    background-position: center; /* Centers the image */
-    background-attachment: fixed; /* Keeps the background fixed during scroll */
+    background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('../assets/img/cover2.png');
+    background-size: cover;
+    background-position: 60% center; /* Move image 20% to the left */
+    background-repeat: no-repeat;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
     color: var(--white);
     position: relative;
+    padding-top: 100px; /* Prevent navbar overlap */
+   
+    background-color: black;
 }
+
 
 .hero::before {
     content: '';
@@ -211,20 +217,46 @@ h2::after {
     background: linear-gradient(to top, rgba(255,255,255,1), transparent);
 }
 
+.hero {
+    height: calc(100vh - 80px);
+    background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('../assets/img/cover2.png');
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+   
+    text-align: right;
+    color: var(--white);
+    position: relative;
+    padding: 80px 5%; /* Add padding on right for better spacing */
+    background-color: black; /* Change grey part to black */
+}
+
 .hero-content {
-    background-image: url('assets/img/cover.jpeg'); /* Ensure the path is correct */
-    background-size: cover; /* Ensures the image covers the entire area */
-    background-position: center; /* Centers the image */
-    height: 100vh; /* Adjust height as needed */
+    position: relative; /* Ensure content is above the background */
+    z-index: 2; /* Bring content above the black background */
     display: flex; /* To center content */
     flex-direction: column; /* Stack children vertically */
     justify-content: center; /* Center vertically */
     align-items: center; /* Center horizontally */
     color: white; /* Change text color for better visibility */
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7); /* Optional: adds shadow for better readability */
+    text-shadow: 0.5px 0.5px 1px rgba(0, 0, 0, 0.5); /* Adjust shadow for better readability */
     max-width: 900px;
-    padding: 0 2rem;
+    padding: 0 2rem; /* Adjust padding as needed */
     animation: fadeInUp 1s ease;
+}
+
+.cta-buttons {
+    margin-top: 200%; /* Adjust this value to move the section lower */
+    display: flex; /* Ensure buttons are displayed in a row */
+    flex-direction: column; /* Stack buttons vertically */
+    align-items: center; /* Center buttons horizontally */
+}
+
+.cta-buttons .btn {
+    width: auto;
+    text-align: center;
 }
 
 .hero-content h1 {
@@ -1120,7 +1152,7 @@ h2::after {
     background-image: url('assets/images/cover.png'); /* Path to your cover image */
     background-size: cover;
     background-position: center;
-    height: 400px; /* Adjust height as needed */
+    height: 00px; /* Adjust height as needed */
 }
 
 .why-choose-card {
@@ -1252,4 +1284,35 @@ h2::after {
     border-radius: 8px; /* Rounded corners */
     margin: 15px auto; /* Center the image and add space above and below */
     display: block; /* Ensure the image is a block element for centering */
+}
+
+.faq-section {
+    padding: 2rem;
+    background-color: #f9f9f9; /* Light background for contrast */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+.faq-section h2 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: #333; /* Darker text for the heading */
+}
+
+.faq-item {
+    margin-bottom: 1.5rem; /* Space between FAQ items */
+    padding: 1rem;
+    border: 1px solid #ddd; /* Border around each FAQ item */
+    border-radius: 5px; /* Rounded corners for FAQ items */
+    background-color: #fff; /* White background for FAQ items */
+}
+
+.faq-item h3 {
+    margin: 0; /* Remove default margin */
+    color: #00adb5; /* Color for question headings */
+}
+
+.faq-item p {
+    margin: 0.5rem 0 0; /* Space above and below the answer */
+    color: #555; /* Slightly lighter text for answers */
 } 

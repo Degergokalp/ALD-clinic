@@ -9,7 +9,7 @@ function sendEmail(event) {
     // Email configuration
     const emailData = {
         from: 'tsc.trade.notify@gmail.com',
-        to: 'degergokalp@gmail.com', // Your receiving email
+        to: 'info@aldhair.com', // Your receiving email
         subject: 'New Contact Form Message from ' + name,
         text: `
 Name: ${name}
@@ -21,7 +21,7 @@ ${message}`
     };
 
     // Using fetch to send to our local server
-    fetch('http://localhost:3000/send-email', {
+    fetch('/send-email', {
         method: 'POST',
         headers: {
             'Accept': 'application/json',
