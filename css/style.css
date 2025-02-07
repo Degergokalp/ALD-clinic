@@ -42,7 +42,12 @@ body {
 /* Enhanced Common Styles */
 .btn {
     display: inline-block;
-    padding: 0.8rem 1.5rem;
+    padding: 10px 20px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 200px;
+    text-align: center;
     border-radius: 50px;
     text-decoration: none;
     margin: 0.5rem;
@@ -50,7 +55,6 @@ body {
     font-weight: 600;
     letter-spacing: 0.5px;
     position: relative;
-    overflow: hidden;
     color: white;
     font-size: 0.9rem;
 }
@@ -210,6 +214,7 @@ h2 {
     padding-top: 100px; /* Prevent navbar overlap */
    
     background-color: white;
+    overflow: hidden;
 }
 
 
@@ -240,24 +245,28 @@ h2 {
 }
 
 .hero-content {
-    position: relative; /* Ensure content is above the background */
-    z-index: 2; /* Bring content above the black background */
-    display: flex; /* To center content */
-    flex-direction: column; /* Stack children vertically */
-    justify-content: center; /* Center vertically */
-    align-items: center; /* Center horizontally */
-    color: white; /* Change text color for better visibility */
-    text-shadow: 0.5px 0.5px 1px rgba(0, 0, 0, 0.5); /* Adjust shadow for better readability */
+    position: absolute;
+    bottom: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-shadow: 0.5px 0.5px 1px rgba(0, 0, 0, 0.5);
     max-width: 900px;
-    padding: 0 2rem; /* Adjust padding as needed */
+    padding: 0 2rem;
     animation: fadeInUp 1s ease;
 }
 
 .cta-buttons {
-    margin-top: 300%; /* Adjust this value to move the section lower */
-    display: flex; /* Ensure buttons are displayed in a row */
-    flex-direction: column; /* Stack buttons vertically */
-    align-items: center; /* Center buttons horizontally */
+    margin-top: 300%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
 }
 
 .cta-buttons .btn {
@@ -1383,4 +1392,21 @@ h2 {
 /* Optional: Add hover effect for buttons */
 .btn:hover {
     border-color: #008c93; /* Darker shade on hover */
+}
+
+.faq-question {
+    display: flex; /* Use flexbox for alignment */
+    align-items: center; /* Center items vertically */
+}
+
+.faq-number {
+    font-weight: bold; /* Make the number bold */
+    margin-right: 10px; /* Space between number and text */
+    color: #00adb5; /* Optional: Color for the number */
+}
+
+.fas.fa-arrow-down {
+    margin-left: 10px; /* Space between question text and arrow */
+    color: #555; /* Dark grey color for the arrow */
+    font-size: 1.2rem; /* Optional: Adjust size of the arrow */
 }
