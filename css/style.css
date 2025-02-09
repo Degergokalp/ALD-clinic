@@ -102,7 +102,7 @@ body {
 }
 
 section {
-    padding: 4rem 0;
+    padding: 2rem 0;
     position: relative;
 }
 
@@ -146,20 +146,16 @@ h2 {
     left: 0;
     right: 0;
     background-color: white;
-    opacity: 0;
-    transition: opacity 0.3s ease;
+    opacity: 1;
+    transition: none;
     z-index: 1000;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 0.5rem 5%;
     box-shadow: var(--shadow);
-    height: 50px; /* Ensure navbar height is fixed */
+    height: 70px; /* Ensure navbar height is fixed */
     overflow: hidden;
-}
-
-.navbar.visible {
-    opacity: 1;
 }
 
 .logo {
@@ -252,7 +248,7 @@ h2 {
 
 .hero-content {
     position: absolute;
-    bottom: 10%;
+    bottom: 5%;
     left: 50%;
     transform: translateX(-50%);
     z-index: 10;
@@ -268,16 +264,27 @@ h2 {
 }
 
 .cta-buttons {
-    margin-top: 300%;
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
+    padding: 0 10px;
 }
 
 .cta-buttons .btn {
-    width: auto;
+    padding: 10px 20px;
+    font-size: 1.2rem;
     text-align: center;
+    margin: 5px 0;
+    background-color: #7792cd;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
 }
 
 .hero-content h1 {
@@ -376,6 +383,10 @@ h2 {
     h2::after {
         width: 60px;
         height: 3px;
+    }
+
+    .cta-buttons .btn {
+        font-size: 1rem;
     }
 }
 
@@ -959,7 +970,7 @@ h2 {
     }
 
     section {
-        padding: 6rem 0;
+        padding: 4rem 0;
     }
 
     h2 {
@@ -1415,4 +1426,35 @@ h2 {
     margin-left: 10px; /* Space between question text and arrow */
     color: #555; /* Dark grey color for the arrow */
     font-size: 1.2rem; /* Optional: Adjust size of the arrow */
+}
+
+.nav-toggle {
+    display: none; /* Hide the toggle button by default */
+    background: none; /* No background */
+    border: none; /* No border */
+    font-size: 24px; /* Size of the icon */
+    cursor: pointer; /* Pointer cursor on hover */
+    color: #00adb5; /* Color of the icon */
+}
+
+/* Media Query for Mobile */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none; /* Hide links by default on mobile */
+        flex-direction: column; /* Stack links vertically */
+        width: 100%; /* Full width */
+        background-color: white; /* Background color for dropdown */
+        position: absolute; /* Positioning */
+        top: 60px; /* Adjust based on your navbar height */
+        left: 0; /* Align to the left */
+        z-index: 1000; /* Ensure it appears above other content */
+    }
+
+    .nav-links.visible {
+        display: flex; /* Show links when visible */
+    }
+
+    .nav-toggle {
+        display: block; /* Show the toggle button on mobile */
+    }
 }
