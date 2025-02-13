@@ -675,7 +675,8 @@ h2 {
 }
 
 .contact-container {
-    max-width: 700px;
+    max-width: 925px;
+    min-width: 700px;
     margin: 0 auto;
     padding: 0 2rem;
     position: relative;
@@ -1456,5 +1457,78 @@ h2 {
 
     .nav-toggle {
         display: block; /* Show the toggle button on mobile */
+    }
+}
+
+.price-amount {
+    font-size: 1.2rem; /* Adjust this value to increase the size of €1499 */
+    font-weight: bold; /* Optional: Make the text bold */
+}
+.contact-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.contact-form {
+    flex: 1;
+    max-width: 50%;
+}
+
+.calendar-container {
+    flex: 1;
+    max-width: 40%;
+    padding: 20px;
+    background: #ffffff;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.date-picker {
+    width: 100%;
+    margin: 10px 0;
+}
+
+.calendar-input {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.suggestions-dropdown {
+    border: 1px solid #ccc; /* Dropdown için kenar */
+    max-height: 150px; /* Maksimum yükseklik */
+    overflow-y: auto; /* Taşma durumunda kaydırma */
+    position: absolute; /* Girişin altında konumlandır */
+    background-color: white; /* Arka plan rengi */
+    z-index: 1000; /* Diğer içeriklerin üstünde görünmesi için */
+}
+
+.suggestion-item {
+    padding: 10px; /* Her öneri için iç boşluk */
+    cursor: pointer; /* Üzerine gelindiğinde imleci değiştir */
+}
+
+.suggestion-item:hover {
+    background-color: #f0f0f0; /* Üzerine gelindiğinde arka plan rengi değiştir */
+}
+@media (max-width: 768px) {
+    .contact-container {
+        display: flex;
+        flex-direction: column; /* Stack elements on smaller screens */
+    }
+
+    .calendar-container {
+        order: 2; /* Move below the form */
+        margin-top: 20px; /* Add spacing */
+    }
+
+    .contact-form {
+        order: 1; /* Keep form on top */
     }
 }

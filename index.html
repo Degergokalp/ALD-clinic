@@ -12,6 +12,9 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
 </head>
 <body>
     <!-- Fixed WhatsApp Button -->
@@ -261,9 +264,6 @@
             <div class="pricing-card featured">
                 <h3>Standard 3-Day Package</h3>
                 <ul class="features">
-                    <li>Extended Recovery Time</li>
-                    <li>Follow-up Care</li>
-                    <li>City Tour Opportunity</li>
                     <li>No Deposit Needed</li>
                     <li>Personal Consultation</li>
                     <li>VIP Airport, Hotel and Clinic Transfers</li>
@@ -271,31 +271,59 @@
                     <li>Luxury 5-Star Hotel Accommodation</li>
                     <li>Procedure at Luxury Full-Fledged Hospital</li>
                     <li>Post-Operation Care Kit</li>
+                    <li>Follow-up Care</li>
                 </ul>
                 <div class="package-benefits">
                     
                 </div>
-                <a href="#contact" class="btn primary">
-                    <span>Starts From </span>€1499
+                <a href="#contact" class="btn primary" >
+                    <span>Starts From </span><span class="price-amount">€1499</span>
                 </a>
             </div>
 
         </div>
     </section>
 
-    <!-- Contact Form Section -->
-    <section id="contact" class="contact-section">
-        <h2>Get in Touch</h2>
-        <div class="contact-container">
-            <form class="contact-form" id="contactForm" onsubmit="return sendEmail(event)">
-                <input type="text" id="name" name="name" placeholder="Your Name" required>
-                <input type="email" id="email" name="email" placeholder="Your Email" required>
-                <input type="tel" id="phone" name="phone" placeholder="Your Phone">
-                <textarea id="message" name="message" placeholder="Your Message" required></textarea>
-                <button type="submit" class="btn primary">Send Message</button>
-            </form>
+<!-- Get in Touch Section -->
+<section id="contact" class="contact-section">
+    <h2>Get in Touch</h2>
+    <div class="contact-container">
+        <!-- Contact Form -->
+        <form class="contact-form" id="contactForm">
+            <input type="text" id="name" name="name" placeholder="Your Name" required>
+            <input type="email" id="email" name="email" placeholder="Your Email" required>
+            <input type="tel" id="phone" name="phone" placeholder="Your Phone">
+            <textarea id="message" name="message" placeholder="Your Message" required></textarea>
+            <button type="submit" class="btn primary">Send Message</button>
+        </form>
+
+        <!-- Calendar & Flight Search Section -->
+        <div class="calendar-container">
+            <h3>Select Your Travel Details</h3>
+            
+            <!-- Departure City Input -->
+            <input type="text" id="departure-city" class="calendar-input" placeholder="Enter Departure City" required>
+            <div id="suggestions" class="suggestions-dropdown"></div>
+
+            <div class="date-picker">
+                <input type="text" id="calendar-input" class="calendar-input" >
+            </div>
+            
+
+            <button class="btn primary" onclick="searchFlights()">Find Flights</button>
         </div>
-    </section>
+    </div>
+</section>
+
+<!-- Include Flatpickr Library -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
+
+<!-- Include Flatpickr -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
 
 
     <!-- Hair Transplant Steps -->
@@ -579,15 +607,76 @@
             answer.style.display = (answer.style.display === 'block') ? 'none' : 'block';
         });
     });
-    </script>
-    <script>
-        const navToggle = document.getElementById('nav-toggle');
-        const navLinks = document.getElementById('nav-links');
 
-        navToggle.addEventListener('click', () => {
-            navLinks.classList.toggle('visible'); // Toggle the visibility of the nav links
+document.addEventListener("DOMContentLoaded", function () {
+    flatpickr("#calendar-input", {
+        inline: true, // Keeps the calendar always visible
+        dateFormat: "Y-m-d", // Format like 20250215 (YYYYMMDD)
+        minDate: "today", // Prevents past date selection
+        mode: "range" // Allows selecting a start & end date
+    });
+});
+
+
+function searchFlights() {
+    let departureInput = document.getElementById('departure-city');
+    let departureIATA = departureInput.dataset.iata; // Get stored IATA code
+    let selectedDates = document.getElementById('calendar-input').value.split(" to ");
+
+    if (!departureIATA) {
+        alert("Please select a valid departure city.");
+        return;
+    }
+
+    if (selectedDates.length !== 2) {
+        alert("Please select both departure and return dates.");
+        return;
+    }
+
+    let departureDate = selectedDates[0];
+    let returnDate = selectedDates[1];
+
+    // Skyscanner flight search URL with IATA codes
+    let skyscannerURL = `https://www.skyscanner.com/transport/flights/${departureIATA}/IST/${departureDate.replace(/-/g, '')}/${returnDate.replace(/-/g, '')}/`;
+
+    // Open in a new tab
+    window.open(skyscannerURL, "_blank");
+}
+
+// Fetch IATA codes
+const input = document.getElementById('departure-city');
+const suggestionsContainer = document.getElementById('suggestions');
+
+fetch('iata_codes.json')
+    .then(response => response.json())
+    .then(data => {
+        input.addEventListener('input', function() {
+            const value = this.value.trim().toLowerCase();
+            suggestionsContainer.innerHTML = ''; // Clear previous suggestions
+
+            if (value) {
+                const filteredCities = Object.keys(data).filter(city => city.toLowerCase().includes(value));
+                filteredCities.forEach(city => {
+                    const suggestionItem = document.createElement('div');
+                    suggestionItem.classList.add('suggestion-item');
+                    suggestionItem.textContent = `${city} (${data[city]})`; // Show city + IATA
+                    suggestionItem.dataset.iata = data[city]; // Store IATA code
+
+                    // When suggestion is clicked
+                    suggestionItem.addEventListener('click', function() {
+                        input.value = city; // Set city name in input
+                        input.dataset.iata = this.dataset.iata; // Store IATA code
+                        suggestionsContainer.innerHTML = ''; // Clear suggestions
+                    });
+
+                    suggestionsContainer.appendChild(suggestionItem);
+                });
+            }
         });
-    </script>
+    })
+    .catch(error => console.error('Error fetching IATA codes:', error));
+ </script>
+        
 </body>
 </html>
 
