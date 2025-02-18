@@ -2,9 +2,9 @@ function sendEmail(event) {
     event.preventDefault();
 
     const name = document.getElementById('name').value;
-    const email = document.getElementById('email').value;
+    const email = "-"
     const phone = document.getElementById('phone').value;
-    const message = document.getElementById('message').value;
+    const message = "-"
 
     // Email configuration
     const emailData = {

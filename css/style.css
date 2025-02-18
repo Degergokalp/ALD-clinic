@@ -200,25 +200,54 @@ h2 {
 .nav-links a:hover::after {
     width: 100%;
 }
-
 .hero {
-    height: 100vh;
-    background: linear-gradient(rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.02)), url('../assets/img/newcover.png');
-    background-size: cover;
-    background-position: 60% center; /* Move image 20% to the left */
-    background-repeat: no-repeat;
+    position: relative;
+    height: calc(100vh - 80px);
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
     color: var(--white);
-    position: relative;
-    padding-top: 100px; /* Prevent navbar overlap */
-   
-    background-color: white;
+    background-color: black;
     overflow: hidden;
 }
 
+.background-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1; /* Keeps the video behind the content */
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2; /* Brings the content in front of the video */
+    color: white;
+    text-align: center;
+}
+
+.cta-buttons {
+    position: absolute;
+    bottom: 20px; /* Adjust this value for spacing */
+    left: 50%;
+    transform: translateX(-50%); /* Center the button horizontally */
+    z-index: 3; /* Ensure it's above the video */
+    justify-content: center;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Media query for mobile view */
+@media (max-width: 768px) {
+    .cta-buttons {
+        width: 90%; /* Set width to 90% on mobile */
+        left: 50%; /* Center the button */
+        transform: translate(-50%, 0); /* Adjust transform for centering */
+    }
+}
 
 .hero::before {
     content: '';
@@ -230,23 +259,7 @@ h2 {
     background: linear-gradient(to top, rgba(255,255,255,1), transparent);
 }
 
-.hero {
-    height: calc(100vh - 80px);
-    background: linear-gradient(rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.02)), url('../assets/img/newcover.png');
-    background-size: contain;
-    background-position: center;
-    background-repeat: no-repeat;
-    display: flex;
-    align-items: center;
-   
-    text-align: right;
-    color: var(--white);
-    position: relative;
-    padding: 80px 5%; /* Add padding on right for better spacing */
-    background-color: white; /* Change grey part to black */
-}
-
-.hero-content {
+/* .hero-content {
     position: absolute;
     bottom: 5%;
     left: 50%;
@@ -273,9 +286,9 @@ h2 {
     align-items: center;
     text-align: center;
     padding: 0 10px;
-}
+} */
 
-.cta-buttons .btn {
+/* .cta-buttons .btn {
     padding: 10px 20px;
     font-size: 1.2rem;
     text-align: center;
@@ -285,7 +298,7 @@ h2 {
     border: none;
     border-radius: 5px;
     cursor: pointer;
-}
+} */
 
 .hero-content h1 {
     font-size: 4rem;
@@ -671,12 +684,12 @@ h2 {
     background-color: var(--gray);
     position: relative;
     overflow: hidden;
-    padding: 4rem 0;
+   
 }
 
 .contact-container {
     max-width: 925px;
-    min-width: 700px;
+    min-width: 600px;
     margin: 0 auto;
     padding: 0 2rem;
     position: relative;
@@ -684,28 +697,36 @@ h2 {
 }
 
 .contact-form {
-    background: var(--white);
-    padding: 3rem;
-    border-radius: 20px;
-    box-shadow: var(--shadow-strong);
+    display: flex;
+    flex-direction: column;
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.contact-form input,
-.contact-form textarea {
-    width: 100%;
-    padding: 1rem 1.5rem;
-    border: 2px solid #eee;
-    border-radius: 10px;
-    font-size: 1rem;
-    transition: all 0.3s ease;
-    margin-bottom: 1rem;
+.contact-form input {
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
 }
 
-.contact-form input:focus,
-.contact-form textarea:focus {
-    border-color: var(--primary-color);
-    outline: none;
-    box-shadow: 0 0 0 5px rgba(0, 173, 181, 0.1);
+.contact-form button {
+    padding: 10px;
+    background-color: #7792cd;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.contact-form button:hover {
+    background-color: #5a7a9c;
 }
 
 /* Article Section Styling */
@@ -917,18 +938,28 @@ h2 {
     height: 60px;
     border-radius: 50%;
     text-align: center;
-    font-size: 30px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+    font-size: 30px; /* Keep original font size */
+    box-shadow: 0 0 5px #06a806; /* Initial glow */
     z-index: 100;
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: all 0.3s ease;
+    animation: glow 1.5s infinite alternate; /* Add animation */
+}
+
+/* Glowing Animation */
+@keyframes glow {
+    0% {
+        box-shadow: 0 0 5px #06a806, 0 0 10px #06a806, 0 0 15px #00ff00; /* Initial glow */
+    }
+    100% {
+        box-shadow: 0 0 20px #06a806, 0 0 70px #06a806, 0 0 40px #00ff00; /* Increased glow */
+    }
 }
 
 .whatsapp-float:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+    transform: translateY(-5px); /* Lift effect on hover */
+    box-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00; /* Stronger glow on hover */
 }
 
 /* Animations */
@@ -1193,10 +1224,7 @@ h2 {
 }
 
 .cover-image {
-    background-image: url('assets/images/newcover.png'); /* Path to your cover image */
-    background-size: cover;
-    background-position: center;
-    height: 00px; /* Adjust height as needed */
+    display: none; /* Hide this if you're using a video */
 }
 
 .why-choose-card {
@@ -1461,7 +1489,7 @@ h2 {
 }
 
 .price-amount {
-    font-size: 1.2rem; /* Adjust this value to increase the size of €1499 */
+    font-size: 1.4rem; /* Adjust this value to increase the size of €1499 */
     font-weight: bold; /* Optional: Make the text bold */
 }
 .contact-container {
@@ -1530,5 +1558,61 @@ h2 {
 
     .contact-form {
         order: 1; /* Keep form on top */
+    }
+}
+
+.form-heading {
+    font-size: 24px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 15px;
+}
+.contact-form {
+    flex: 1;
+    max-width: 100%;
+}
+
+
+/* Ensure its parent container is centered */
+.contact-container {
+    display: flex;
+    justify-content: center; /* Center children horizontally */
+    align-items: center; /* Center children vertically */
+    flex-wrap: wrap; /* Wrap items on smaller screens */
+    text-align: center;
+}
+/* Make sure calendar is centered */
+.calendar-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    max-width: 400px; /* Ensure it's not too wide */
+    background: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 20px auto; /* Center the container */
+}
+
+/* Ensure full-width on mobile */
+@media (max-width: 768px) {
+    .calendar-container {
+        width: 65%; /* Use full width */
+        margin-right: 100%;
+        max-width: 90%; /* Ensure it doesn't exceed viewport width */
+    }
+
+    .calendar-container img {
+        max-width: 80%; /* Scale down logo */
+    }
+
+    .calendar-input {
+        width: 90%; /* Reduce input width */
+    }
+
+    .date-picker {
+        width: 90%; /* Reduce calendar width */
     }
 }

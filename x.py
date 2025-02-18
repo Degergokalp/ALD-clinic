@@ -1,22 +1,26 @@
+import smtplib
+from email.mime.multipart import MIMEMultipart
+from email.mime.text import MIMEText
 import json
 
-# Define input and output file paths
-input_file = "a.txt"  # Change this to your actual file
-output_file = "iata_codes.json"
+def tsc_notification(subject, body,receiver_email):
+    sender_email = "tsc.trade.notify@gmail.com"
 
-data_dict = {}
+    msg = MIMEMultipart()
+    msg['From'] = sender_email
+    msg['To'] = receiver_email
+    msg['Subject'] = subject
+    msg.attach(MIMEText(body, 'plain'))
 
-# Read the input file and process lines
-with open(input_file, "r", encoding="utf-8") as file:
-    for line in file:
-        words = line.strip().split()
-        if len(words) >= 2:  # Ensure the line has at least two words
-            key = words[0]
-            value = words[1]
-            data_dict[key] = value
+    smtp_server = "smtp.gmail.com"
+    smtp_port = 587
+    smtp_username = "tsc.trade.notify@gmail.com"
+    smtp_password = "dlflavrvdjjhfvnc"
 
-# Write the dictionary to a JSON file
-with open(output_file, "w", encoding="utf-8") as json_file:
-    json.dump(data_dict, json_file, indent=4, ensure_ascii=False)
 
-print(f"JSON file '{output_file}' created successfully!")
+    with smtplib.SMTP(smtp_server, smtp_port) as server:
+        server.starttls()  # Enable encryption
+        server.login(smtp_username, smtp_password)
+        server.sendmail(sender_email, receiver_email, msg.as_string())
+
+    print("Email sent successfully.")
