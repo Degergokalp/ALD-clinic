@@ -8,11 +8,13 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 // Middleware
-app.use(cors()); // Add CORS support
-app.use(express.static('.'));
+app.use(cors()); 
 app.use(express.json());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+
+// Serve Static Files Properly
+app.use(express.static(path.join(__dirname, 'assets')));
 
 // Email Transporter
 const transporter = nodemailer.createTransport({
@@ -23,12 +25,12 @@ const transporter = nodemailer.createTransport({
     }
 });
 
-// Test route
+// Test Route
 app.get('/test', (req, res) => {
     res.json({ message: 'Server is working!' });
 });
 
-// Email sending endpoint
+// Email Sending Endpoint
 app.post('/send-email', (req, res) => {
     console.log('Received email request:', req.body);
 
@@ -50,11 +52,11 @@ app.post('/send-email', (req, res) => {
     });
 });
 
-// Handle all routes
+// Handle All Routes
 app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, 'index.html'));
 });
 
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
-}); 
+});
