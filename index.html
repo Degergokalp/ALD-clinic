@@ -24,10 +24,7 @@
 
     <!-- Hero Section -->
     <header class="hero" id="home">
-        <video autoplay muted loop class="background-video">
-            <source src="img/0218.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
+      
         <div class="cta-buttons">
             
             <span></span>
@@ -240,34 +237,6 @@
             </div>
         </div>
     </section>
-
-    <!-- Services Section -->
-    <section id="services" class="services-section">
-        <h2>Our Services</h2>
-        <div class="services-grid">
-            <div class="service-card">
-                <i class="fas fa-user-md"></i>
-                <h3>Micro FUE Sapphire</h3>
-                <p>Advanced hair transplantation using sapphire blades for precise results.</p>
-            </div>
-            <div class="service-card">
-                <i class="fas fa-heartbeat"></i>
-                <h3>DHI Implantation</h3>
-                <p>Direct Hair Implantation for natural-looking results.</p>
-            </div>
-            <div class="service-card">
-                <i class="fas fa-flask"></i>
-                <h3>PRP Hair Treatment</h3>
-                <p>Stimulate natural hair growth with Platelet-Rich Plasma therapy.</p>
-            </div>
-            <div class="service-card">
-                <i class="fas fa-cut"></i>
-                <h3>Afro Hair Transplantation</h3>
-                <p>Specialized techniques for African hair types.</p>
-            </div>
-        </div>
-    </section>
-
     <!-- Pricing Section -->
     <section id="pricing" class="pricing-section">
         <h2>Our Packages</h2>
@@ -295,6 +264,34 @@
 
         </div>
     </section>
+    <!-- Services Section -->
+    <section id="services" class="services-section">
+        <h2>Our Services</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <i class="fas fa-user-md"></i>
+                <h3>Micro FUE Sapphire</h3>
+                <p>Advanced hair transplantation using sapphire blades for precise results.</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-heartbeat"></i>
+                <h3>DHI Implantation</h3>
+                <p>Direct Hair Implantation for natural-looking results.</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-flask"></i>
+                <h3>PRP Hair Treatment</h3>
+                <p>Stimulate natural hair growth with Platelet-Rich Plasma therapy.</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-cut"></i>
+                <h3>Afro Hair Transplantation</h3>
+                <p>Specialized techniques for African hair types.</p>
+            </div>
+        </div>
+    </section>
+
+
 
 <!-- Get in Touch Section -->
 <section id="contact" class="contact-section">
@@ -573,7 +570,7 @@
                 <h3>Contact Us</h3>
                 <p><i class="fas fa-envelope"></i> info@aldhair.com</p>
                 <p><i class="fas fa-phone"></i> +905308193487</p>
-                <p><i class="fas fa-map-marker-alt"></i> Your Clinic Address</p>
+                <p><i class="fas fa-map-marker-alt"></i> Atakent, 4. Cd. No:36, 34307 Küçükçekmece/İstanbul</p>
             </div>
             <div class="footer-section">
                 <h3>Quick Links</h3>
@@ -646,27 +643,6 @@ function searchFlights() {
     // Open in a new tab
     window.open(skyscannerURL, "_blank");
 }
-document.addEventListener("DOMContentLoaded", function () {
-    const navToggle = document.getElementById('nav-toggle');
-    const navLinks = document.getElementById('nav-links');
-    navToggle.addEventListener('click', () => {
-       console.log('Toggle button clicked'); // Add this line
-       navLinks.classList.toggle('visible');
-   });
-
-    // Close menu when clicking outside
-    document.addEventListener('click', function (event) {
-        if (!navLinks.contains(event.target) && !navToggle.contains(event.target)) {
-            navLinks.classList.remove('visible');
-        }
-    });
-
-    // Prevent nav links from closing when clicking inside
-    navLinks.addEventListener('click', function (event) {
-        event.stopPropagation();
-    });
-});
-
 
 // Fetch IATA codes
 const input = document.getElementById('departure-city');
@@ -742,9 +718,69 @@ fetch('iata_codes.json')
             document.addEventListener("DOMContentLoaded", function () {
                 document.getElementById("contactForm").addEventListener("submit", sendEmail);
             });
+            function showPopup() {
+        document.getElementById('popup').style.display = 'flex';
+    }
+
+    function closePopup() {
+        document.getElementById('popup').style.display = 'none';
+    }
+
+    // Show the popup after a delay (optional)
+    window.onload = function() {
+        setTimeout(showPopup, 1000); // Show after 1 second
+    };
             </script>
             
+    <div class="popup" id="popup">
+        <div class="popup-content">
+            <h1>All Inclusive Hair Transplant for €1499!</h1>
+            <p>Contact us now for a world-class hair transplant. Leave the rest to us, we'll take care of everything for you!</p><br><br>
+            <a href="https://wa.me/905308193487" class="whatsapp-button">Contact Us on WhatsApp</a>
+            <button class="close-button" onclick="closePopup()">✖</button>
+        </div>
+    </div>
 </body>
 </html>
 
 <data value=""></data>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    console.log("DOM Loaded. Initializing navbar toggle...");
+
+    const navToggle = document.getElementById('nav-toggle');
+    const navLinks = document.getElementById('nav-links');
+    const navLinksList = document.querySelectorAll('.nav-links a'); // Select all nav links
+
+    navToggle.addEventListener('click', function () {
+        console.log("Navbar toggle clicked!");
+        navLinks.classList.toggle('visible');
+
+        if (navLinks.classList.contains('visible')) {
+            console.log("Navbar opened.");
+        } else {
+            console.log("Navbar closed.");
+        }
+    });
+
+    // Close the menu when clicking outside
+    document.addEventListener('click', function (event) {
+        if (!navLinks.contains(event.target) && !navToggle.contains(event.target)) {
+            navLinks.classList.remove('visible');
+            console.log("Clicked outside - Navbar closed.");
+        }
+    });
+
+    // Close menu when a link is clicked
+    navLinksList.forEach(link => {
+        link.addEventListener('click', function () {
+            console.log(`Navigating to ${this.getAttribute('href')} - Navbar closing.`);
+            navLinks.classList.remove('visible');
+        });
+    });
+
+    console.log("Navbar toggle script initialized successfully.");
+});
+
+</script>

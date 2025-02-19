@@ -208,7 +208,11 @@ h2 {
     justify-content: center;
     text-align: center;
     color: var(--white);
-    background-color: black;
+    background-color: rgb(255, 255, 255); /* Fallback color */
+    background-image: url('../img/coverhor.jpeg'); /* Your image path */
+    background-size: 100%; /* Scale the background image to 80% of its original size */
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Prevent the image from repeating */
     overflow: hidden;
 }
 
@@ -237,26 +241,7 @@ h2 {
     z-index: 3; /* Ensure it's above the video */
     justify-content: center;
     text-align: center;
-    margin-bottom: 20px;
-}
-
-/* Media query for mobile view */
-@media (max-width: 768px) {
-    .cta-buttons {
-        width: 90%; /* Set width to 90% on mobile */
-        left: 50%; /* Center the button */
-        transform: translate(-50%, 0); /* Adjust transform for centering */
-    }
-}
-
-.hero::before {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 100px;
-    background: linear-gradient(to top, rgba(255,255,255,1), transparent);
+    margin-bottom: 5px;
 }
 
 /* .hero-content {
@@ -1614,5 +1599,145 @@ h2 {
 
     .date-picker {
         width: 90%; /* Reduce calendar width */
+    }
+}
+
+/* Styles for the pop-up background */
+.popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Dark overlay */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+/* Styles for the pop-up content */
+.popup-content {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 500px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    position: relative;
+}
+
+/* Header Styling - Bigger & Different Color */
+.popup-content h1 {
+    font-size: 32px; /* Increased size */
+    font-weight: bold;
+    color: #0077cc; /* Changed to a blue shade */
+    margin-bottom: 15px;
+}
+
+/* Description text */
+.popup-content p {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+/* WhatsApp Button with Glow Effect */
+.whatsapp-button {
+    display: block;
+    background: #06a806;
+    color: white;
+    text-decoration: none;
+    padding: 12px 20px;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    transition: 0.3s;
+    text-align: center;
+    animation: glow 1.5s infinite alternate; /* Apply glowing effect */
+    border: none;
+}
+
+/* Glow Animation */
+@keyframes glow {
+    0% {
+        box-shadow: 0 0 5px #06a806, 0 0 10px #06a806, 0 0 15px #00ff00;
+    }
+    100% {
+        box-shadow: 0 0 20px #06a806, 0 0 70px #06a806, 0 0 40px #00ff00;
+    }
+}
+
+/* WhatsApp Button Hover Effect */
+.whatsapp-button:hover {
+    transform: translateY(-5px); /* Lift effect on hover */
+    box-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00; /* Stronger glow on hover */
+}
+
+/* Close Button */
+.close-button {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: #555;
+}
+
+.close-button:hover {
+    color: #222;
+}
+
+@media (max-width: 768px) {
+    .cta-buttons {
+        width: 90%; /* Ensure the button section is 90% width */
+        margin: 0 auto; /* Center the button section */
+    }
+
+    .contact-form {
+        font-size: 12px; /* Reduce font size for mobile */
+    }
+
+    .contact-form input {
+        padding: 8px; /* Reduce padding for input fields */
+        font-size: 12px; /* Reduce font size for input fields */
+    }
+
+    .contact-form button {
+        padding: 8px 16px; /* Reduce padding for button */
+        font-size: 12px; /* Reduce font size for button */
+    }
+}
+/* Mobile Navigation */
+@media (max-width: 768px) {
+    .nav-links {
+        position: fixed;
+        top: 70px; /* Align below the navbar */
+        left: 0;
+        width: 100%;
+        background: var(--white);
+        flex-direction: column;
+        align-items: center;
+        padding: 1rem 0;
+        max-height: 0; /* Initially hidden */
+        overflow: hidden; /* Prevent content from being shown */
+        transition: max-height 0.4s ease-in-out;
+    }
+
+    .nav-links.visible {
+        max-height: 500px; /* Expand height when visible */
+    }
+
+    .nav-toggle {
+        display: block;
+        background: none;
+        border: none;
+        font-size: 24px;
+        cursor: pointer;
+        color: #00adb5;
     }
 }
