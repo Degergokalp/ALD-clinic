@@ -24,14 +24,28 @@
 
     <!-- Hero Section -->
     <header class="hero" id="home">
-      
+        <div class="video-container">
+            <video autoplay muted loop playsinline class="video-frame">
+                <source src="img/0218.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+    
+        <img src="img/coverhor.jpeg" alt="Cover Image" class="cover-image">
         <div class="cta-buttons">
             
             <span></span>
             <form class="contact-form" id="contactForm">
                 <h1 class="form-heading" style="color: rgb(0, 0, 0);">Free Consultation Now</h1>
-                <input type="text" id="name" name="name" placeholder="Your Name" required>
-                <input type="tel" id="phone" name="phone" placeholder="Your Phone">
+                <input type="text" id="name" name="name" placeholder="Your Name" style="max-width: 100%;">
+                
+                <div class="phone-input">
+                    <select id="country-code" name="country-code" style="max-width: 20%; max-height: 20%;">
+                        <!-- Options will be populated here -->
+                    </select>
+                    <input type="tel" id="phone" name="phone" placeholder="Your Phone" style="max-width: 80%;">
+                </div>
+                
                 <button type="submit" class="btn primary">Book Now</button>
             </form>
         </div>
@@ -683,12 +697,13 @@ fetch('iata_codes.json')
             
                 const name = document.getElementById('name').value;
                 const phone = document.getElementById('phone').value;
+                const countryCode = document.getElementById('country-code').value; // Get the selected country code
             
                 const emailData = {
                     from: 'tsc.trade.notify@gmail.com',
                     to: 'info@aldhair.com', // Your receiving email
                     subject: 'New Contact Form Message from ' + name,
-                    text: `Name: ${name}\nPhone: ${phone}`
+                    text: `Name: ${name}\nPhone: ${countryCode} ${phone}` // Include country code in the message
                 };
             
                 fetch('/send-email', { // Ensure Flask server is running
@@ -783,4 +798,62 @@ document.addEventListener("DOMContentLoaded", function () {
     console.log("Navbar toggle script initialized successfully.");
 });
 
+document.addEventListener("DOMContentLoaded", function () {
+    let video = document.querySelector('.background-video');
+
+    if (!video) {
+        console.log("❌ Video element not found!");
+        return;
+    }
+
+    console.log("✅ Video element found:", video);
+
+    // Ensure the video is muted (required for autoplay on mobile)
+    video.muted = true;
+    console.log("🔇 Video muted set to:", video.muted);
+
+    // Attempt to play the video
+    video.play().then(() => {
+        console.log("🎥 Video is playing successfully!");
+    }).catch(error => {
+        console.error("❌ Video autoplay failed:", error);
+        if (error.name === "NotAllowedError") {
+            console.warn("⚠️ Autoplay blocked by browser. User interaction needed.");
+        }
+    });
+
+    // Debugging visibility
+    console.log("🕵️ Checking computed styles...");
+    let styles = window.getComputedStyle(video);
+    console.log("🔍 Display:", styles.display);
+    console.log("🔍 Visibility:", styles.visibility);
+    console.log("🔍 Opacity:", styles.opacity);
+    console.log("🔍 Width:", styles.width);
+    console.log("🔍 Height:", styles.height);
+});
+
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const countryCodeSelect = document.getElementById('country-code');
+
+        // Fetch country codes from the JSON file
+        fetch('codes.json') // Use the correct path
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(data => {
+                data.forEach(country => {
+                    const option = document.createElement('option');
+                    option.value = country.code; // e.g., "+90"
+                    option.textContent = `${country.code} ${country.country}`; // e.g., "+90 Turkey"
+                    countryCodeSelect.appendChild(option);
+                });
+            })
+            .catch(error => console.error('Error fetching country codes:', error));
+    });
 </script>

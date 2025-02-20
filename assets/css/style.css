@@ -682,7 +682,7 @@ h2 {
 }
 
 .contact-form {
-    display: flex;
+  
     flex-direction: column;
     max-width: 400px;
     margin: 0 auto;
@@ -1740,4 +1740,98 @@ h2 {
         cursor: pointer;
         color: #00adb5;
     }
+}
+
+
+/* Hide video by default */
+.background-video {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1; /* Keeps video in background */
+}
+
+/* Show video only on mobile */
+@media (max-width: 768px) {
+    .hero {
+        background-image: none; /* Remove background image */
+        position: relative;
+        height: 100vh;
+    }
+}
+.video-container {
+    display: none; /* Hide by default (for desktop) */
+    width: 100%; /* Full width */
+    max-width: 500px; /* Limit width */
+    margin: 0 auto 20px auto; /* Center and add spacing below */
+    border-radius: 10px; /* Optional: Add rounded corners */
+    overflow: hidden; /* Prevent overflow */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional shadow */
+}
+
+/* Video styling */
+.video-frame {
+    width: 100%;
+    border-radius: 10px;
+    height: 550px; /* Adjust height for mobile */
+    object-fit: cover;
+}
+
+/* Show video only on mobile */
+@media (max-width: 768px) {
+    .video-container {
+        display: block; /* Show video only on mobile */
+    }
+}
+/* General input styling to match existing form */
+
+.contact-form select {
+    width: 40%;               /* Full width */
+    font-size: 12px;           /* Same font size */
+    padding: 10px;             /* Same padding */
+    border: 1px solid #ccc;    /* Same border */
+    border-radius: 4px;        /* Same rounded corners */
+    margin-bottom: 15px;       /* Same spacing */
+    box-sizing: border-box;    /* Ensure consistent width */
+}
+
+/* Phone Group: Wraps the select and phone input */
+.phone-group {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ccc;    /* Same border as inputs */
+    border-radius: 4px;        /* Same rounded corners */
+    overflow: hidden;          /* Ensures the corners stay rounded */
+    background-color: white;
+    margin-bottom: 15px;
+}
+
+/* Country code dropdown */
+.phone-select {
+    width: 30%;                /* Adjust width as needed */
+    padding: 10px;
+    font-size: 16px;
+    border: none;              /* Remove inner border */
+    background-color: white;
+    cursor: pointer;
+    text-align: center;
+}
+
+/* Phone input */
+.phone-group input {
+    width: 70%;                /* Takes remaining space */
+    padding: 10px;
+    font-size: 16px;
+    border: none;              /* No border inside */
+    outline: none;
+}
+
+/* On focus, show border effect */
+.phone-group:focus-within {
+    border-color: #00adb5;  /* Highlight border when clicked */
+    box-shadow: 0 0 5px rgba(0, 173, 181, 0.5);
 }
